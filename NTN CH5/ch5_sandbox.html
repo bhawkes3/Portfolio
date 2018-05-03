@@ -1,26 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        
-        function test (){
-        //THIS DECLARES AN OBJECT LITERAL: 
-        const spiderman = {name, realname}
-        //THIS IS INFO THAT COULD GO INSIDE:
+        //THIS IS INFO THAT WILL GO INSIDE THE OBJECT LITERAL
+        //OTHER NOTE: the variables, or "constants" in this case must be delcared before the object literal.
         const name = "Spiderman"
         const realName = "Peter Parker"
-        
-        //this is to display test items to the user
-        document.getElementById('output').innerHTML = realName;
+        var hero = true
+        const age = 15;
+        //THIS DECLARES AN OBJECT LITERAL: 
+        const spiderman = {
+            name,
+            realName,
+            hero,
+            age
         }
+        //this is the way to add a property after it has been declared
+        spiderman.city = "New York";
+        //OR YOU COULD WRITE IT LIKE THIS
+        const batman = {
+            "name": "Bruce Wayne",
+            "HQ": "Bat Cave"
+        }
+
+
+        //TEST EXAMPLE FROM THE BOOK
+        //for(const key in superman) { console.log(key + ": " + superman[key]); }
+
+        //THIS CHANGES THE PROPERTY
+        spiderman['realName'] = 'Pete';
+
+        //THIS DELETES THE PROPERTY
+        delete spiderman.NAMEOFPROPERTY
+
+        //YOU CAN ALSO NEST OBJECTS LIKE THIS. MAKE SURE THAT YOU PUT COMMAS AFTER THE BRACKETS
+        const fruits = {
+            banana: {
+                color: 'yellow'
+            },
+            apple: {
+                color: 'red'
+            },
+            grapes: {
+                color: 'purple'
+            }
+        }
+
+        //OBJECTS CAN ALSO BE PASSED AS A PARAMETER IN A FUNCTION
+        greet({
+            greeting: `What's up dude`,
+            age: 10,
+            name: `Bart`
+        });
+
+
+        //this IS A KEYWORD THAT REFERS TO THE OBJECT THAT IS WITHIN
+        const dice = {
+            sides: 6,
+            roll() {
+                return Math.floor(this.sides * Math.random()) + 1;
+            }
+        }
+
+        //THIS METHOD OF CALLING THE OBJECT SAVES NAME SPACE
+        const myMaths = {
+            square(x) {
+                return x * x;
+            },
+            mean(array, callback) {
+                if (callback) {
+                    array.map(callback);
+                }
+                const total = array.reduce((a, b) => a + b);
+                return total / array.length;
+            }
+        };
+        //YOU WOULD CALL IT LIKE THIS
+        myMaths.square(3)
+
+        //THE parse() and stringify() METHODS BOTH CONVERT THE JSON DATA AS A STRING, OR FROM A STRING
+        const iceCream = {
+            flavor: "vanilla",
+            color: "white",
+        }
+        JSON.parse(iceCream);
+
+        //TO TURN IT BACK, OR INTO A STRING, YOU OCULLD DO THIS"
+        JSON.stringify(iceCream);
+
+
+        //THE Math OBJECT IS USED FOR DIFFERENT MATHMATICAL CALCULATIONS (REFER TO THE BOOK FOR SPECIFICS)
+        //SOME EXAMPLES ARE:
+        Math.PI();
+        Math.abs();
+        Math.floor();
+        Math.exp();
+        Math.sqrt();
+        Math.hypot();
+        Math.random();
+        //USE "intellisense" TO SEE ALL THE OPTIONS. THERE ARE A LOT OF THEM!
+
+        //THE Date OBJECT
+        const today = new Date();
+        //new IS A KEYWORD, AND Date IS AN OBJECT
+        today.toSTRING();
+        //THE LINE ABOVE CONVERTS OUR DATE CONST WE SET (today) INTO A STRING
+        //WITHOUT ANY ARGUMENTS, THE new Date OBJECT GRABS THE CURRENT DATE AND TIME.
+        //WE CAN SET A SPECIFIC DATE IF WE WANT
+        const birthday = new Date(1996, 1, 27)//feb 27, 1996
+        //THIS IS THE ORDER:
+        new Date(year,month,day,hour,minutes,seconds,milliseconds);
+        //JUST THINK BIGGEST TO SMALLEST
+        //YOU CAN ALSO USE THE FOLLOWING. THEY ARE CALLED 'GETTER' METHODS
+        birthday.getDay();
+        birthday.getUTCDay();
+        birthday.getFullYear();
+        //AGAIN, THERE MARE MANY GETTER METHODS. REFER TO THE WEB FOR ALL OF THEM!
+        //THE NEXT EXAMPLE DEMONSTRATES 'SETTER' METHODS
+        birthday.setDate(2); //the 2nd
+        birthday.setMonth(5); //June
+        birthday.setHours();
+        //set = SETTER AND get = GETTER
+
+        //REGEX (regular expressions)
+        const pattern = /[a-zA-Z]+ing$/; //searches for words ending in "ing"
+        //YOU CAN TEST REGEX LIKE THIS:
+        pattern.test('fries'); //this would return 'false' because it does not end in 'ing'
+        pattern.test('frying'); //this would return 'true'
+        //CHARACTER GROUPS WILL MATCH ANY ONE CHARACTER INSIDE THE BRACKETS
+        const vowels = /[aeiou]/;
+        //OR ALL LETTERS INBETWEEN, SUCH AS
+        const caps = /[A-Z]/;
+        const numbers = /[0-9]/;
+        //THIS IS HOW TO WRITE REGEX
+        const name = /[Bb][ard]nne[lmnop]/;
+        name.test('Brennen'); //true
+        name.test('bardel'); //true
+        name.test('ben'); //false
+        //"FLAGS" CAN ALSO BE PLACED AFTER A REGEX LITERAL TO CHANGE THE DEFAULT PROPERTIES
+        pattern = /java/i //i = ignoreCase
+        //REFER TO THE BOOK FOR MORE INFO: (AROUND PAGE 207)
+        
+        
+
+        console.log(spiderman);
+        console.log(batman);
+        //THIS IS HOW YOU CALL A NESTED OBJECT
+        //THIS METHOD OF NAMING CAN ALSO SAVE NAMESPACE FOR VARIABLES
+        console.log(fruits.banana);
     </script>
 </head>
+
 <body>
     <button type="button" onclick="test()">Click me!</button>
-    <div id='output'></div>
+    <div id='output'></div> 
+    <h1>Other notes about CH.5</h1>
+    <ol>
+        <li>Built in objects include Functions and Arrays</li>
+        <li>JSON = JavaScript Object Notation</li>
+        <li>rules for JSON are:
+            <ul>
+                <li>Property names must be double-quoted</li>
+                <li>Permitted values are double-quoted strings, numbers, true, false, null, arrays
+                    and objects</li>
+                <li>Functions are not permitted values</li>
+            </ul>
+        </li>
+    </ol>
 </body>
+
 </html>
