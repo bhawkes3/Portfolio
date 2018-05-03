@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <style>
+    
+        </style>
+        <script>
+            function add(){
+               var num1 = parseFloat(document.getElementById("input1").value);
+               var num2 = parseFloat(document.getElementById("input2").value);
+                var result = num1 + num2;
+                document.getElementById('output').innerHTML = result ;
+            }
+            function minus(){
+               var num1 = parseFloat(document.getElementById("input1").value);
+               var num2 = parseFloat(document.getElementById("input2").value);
+                var result = num1 - num2;
+                document.getElementById('output').innerHTML = result ;
+            }
+            function divide(){
+                var num1 = parseFloat(document.getElementById("input1").value);
+                var num2 = parseFloat(document.getElementById("input2").value);
+                var result = num1 / num2;
+                if (num2 == 0){
+                    result = "You cannot divide by 0!"
+                }
+                document.getElementById('output').innerHTML = result ;
+
+            }
+        </script>
+</head>
+   
+<body>
+    <h1>Calculator</h1>
+    <input type="text" id="input1">
+    <input type="text" id="input2"><br>
+    <button type="button" id="plusButton" onclick="add()"> + </button>
+    <button type="button" id="minButton" onclick="minus()"> - </button>
+    <button type="button" id="divButton" onclick="divide()"> / </button>
+    Result:<div id='output'></div>
+</body>
+</html>
