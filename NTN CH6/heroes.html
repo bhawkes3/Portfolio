@@ -8,6 +8,8 @@
 
 <body>
     <header>
+        <h1>DISCLAIMER:</h1>
+            <p>Not everything in the JavaScript will work on this file, as there are things that are commented out, and many contradicting variables</p>
         <h1 id='title'>Justice League</h1>
     </header>
     <ul id='roster'>
@@ -84,14 +86,14 @@
 
 
         //YOU CAN ALSO CREATE A NEW ELEMENT LIKE THIS
-            //const flash = document.createElement('li');
+        //const flash = document.createElement('li');
         //YOU CAN ALSO CREATE A NEW TEXT NODE
-            //const flashText = document.createTextNode('Flash');
+        //const flashText = document.createTextNode('Flash');
         //WE JUST MADE A NEW ELEMENT AND A NODE, BUT THEY ARE NOT YET CONNECTED
         //WE CONNECT THEM LIKE THIS
-            //flash.appendChild(flashText);
+        //flash.appendChild(flashText);
         //NOW WE CAN VIEW WHAT WE JUST DID
-            //console.log(flash.children);
+        //console.log(flash.children);
         //THIS IS A SIMPLER WAY TO DO THAT SAME THING
         const flash = document.createElement('li');
         flash.textContent = 'Flash';
@@ -103,13 +105,42 @@
             return el
         }
         //THIS IS TESTING THE FUNCTION THAT WE JUST CREATED
-        const aquaman = createElement('li','Aquaman');
+        const aquaman = createElement('li', 'Aquaman');
 
         //NOW THAT WE KNOW ALL THESE THINGS, AND WE CREATED THE FLASH LI, WE CAN APPEND IT TO OUR ORIGINAL LIST
-        heroes.appendChild(flash);  
+        //heroes.appendChild(flash);
         //THIS AUTOMATICALLY PUTS THE ITEM AT THE BOTTOM OF THE LIST
         //THE FOLLOWING CODE SPECIFIES WHERE YOU PUT YOUR ITEM
-        heroes.insertBefore(aquaman,wonderWoman);
+        //heroes.insertBefore(aquaman, wonderWoman);
+
+        //YOU CAN ALSO REPLACE ELEMENTS
+        const oldText = h1.firstChild;
+        const newText = document.createTextNode('Justice League of America');
+        h1.replaceChild(newText,oldText);
+        
+        //THIS SHOWS THE 'HEROES' IN THE INNER HTML
+        console.log(heroes.innerHTML);
+
+        //YOU CAN MAKE A NEW HTML ELEMENT LIKE THIS
+        h1.innerHTML = 'Suicide Squad';
+
+        //YOU CAN EASILY REPLACE HTML IN EXISTING ELEMENTS
+        heroes.innerHTML = '<li>Harley Quinn</li> <li>Deadshot</li> <li>Killer Croc</li> <li>Enchantress</li><li>Captain Boomerang</li> <li>Katana</li><li>Slipknot</li>';
+        const list = heroes.children;
+
+        //WE CAN EVEN CHANGE CSS
+        const superman = heroes.children[0];
+        superman.style.border = 'red 2px solid';
+        //NOTE: when you a css property that usually has a space, ie background color, in JS notation, you need to write in camelCase, ie backgroundColor
+        //THIS IS A LITTLE TRICK YOU CAN DO TO MAKE THINGS DISSAPEAR
+        superman.style.display = 'none';
+        //ANOTHER USEFUL TOOL FOR CSS IN JAVASCRIPT IS THE getComputedStyle() function
+        getComputedStyle(superman);
+        //IT SHOWS ALL THE CSS RULES APPLIED TO IT
+        //YOU SHOULD REALLY ONLY MESS WITH CSS IN JAVASCRIPT WHEN YOU DON'T HAVE ACCESS TO THE STYLE SHEET. ITS ALWAYS A BETTER IDEA TO USE AN EXTERNAL STYLE SHEET
+        
+        
+
     </script>
 </body>
 
