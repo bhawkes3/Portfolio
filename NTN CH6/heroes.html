@@ -16,9 +16,101 @@
         <li class='hero'>Wonder Woman</li>
     </ul>
     <script>
+        //THIS ASSIGNS THE BODY ELEMENT TO A VARIABLE
         const body = document.body;
+        //YOU CAN CHECK THE TYPE
+        console.log(typeof body);
+        //YOU CAN CHECK THE TYPE OF NODE
+        console.log(body.nodeType)
+        //YOU CAN CHECK THE NAME OF THE NODE
+        console.log(body.nodeName);
+        const h1 = document.getElementById('title');
+        //THIS WILL MAKE A LIST OF THE LIST ITEMS IN THE HTML DOCUMENT
+        //THIS ONE HOLDS 3 ITMES
+        const listItems = document.getElementsByTagName('li');
+        //THIS ACCESSES THE INFO LIKE AN ARRAY,
+        console.log(listItems[0]);
+        console.log(listItems[1]);
+        console.log(listItems[2]);
+        //THIS GETS ELEMENTS BY THEIR CLASS NAME
+        const heroes = document.getElementsByClassName('hero');
+        //YOU CAN CHECK HOW MANY ITEMS ARE IN A PROPERTY
+        console.log(heroes.length);
+        //QUERY SELECTORS ENABLE YOU TO SELECT THINGS USING CSS NOTATION
+        console.log(document.querySelector('#title'));
+        //THE ABOVE CODE IS EQUIVALENT TO THIS:
+        console.log(document.getElementById('title'));
+        //THIS IS USING PSEUDO SELECTORS TO FIND A SPECIFIC ELEMENT
+        const wonderWoman = document.querySelector('li:last-child');
+        //THESE 2 LINES OF CODE ARE A GREAT EXAMPLE OF GOING INTO THE DOM TREE
+        const ul = document.querySelector('ul#roster');
+        const batman = ul.querySelector('li#bats')
+        //THIS IS ANOTHER EXAMPLE OF HOW WE CAN LOOK AT THE DOM TREE
+        const heroes2 = document.getElementById('roster');
+        console.log(heroes2.childNodes);
+        console.log(heroes2.children);
+        //YOU CAN ALSO SEE THE LENGTH
+        console.log(heroes2.children.length);
+        //THIS WILL RETURN THE FIRST CHILD, OR LAST
+        console.log(heroes2.firstChild);
+        console.log(heroes2.lastChild);
+        //HOWEVER, WHEN YOU USE THE ABOVE CODE, IT MAY PRODUCE A #TEXT NODE DUE TO WHITESPACE
+        //OR YOU CAN FIND THE PARENT NODE
+        console.log(heroes.parent);
+        //THIS WILL DISPLAY THE CONTENT AS A STRING
+        console.log(batman.textContent);
+        //THIS WILL GET THE ATTRIBUTE
+        console.log(batman.getAttribute('class'));
+        //WITHOUT AN ATTRIBUTE, THE VALUE WILL RETURN NULL
+        //YOU CAN ALSO CHANGE THE VALUE OF AN ATTRIBUTE
+        console.log(batman.setAttribute('class', 'villian'));
+        console.log(batman.getAttribute('class'));
+        //IF THE ELEMENT DOES NOT HAVE THAT ATTRIBUTE, YOU CAN ADD IT
+        batman.setAttribute('hq', "batcave");
+        console.log(batman.getAttribute('hq'));
+        //YOU CAN ALSO USE DOT NOTATION
+        console.log(batman.id);
+        //THIS IS HOW THE CLASSNAME PROPERTY WORKS
+        console.log(batman.className);
+        //YOU CAN ALSO USE THIS TO SET THE CLASSNAME
+        console.log(batman.classname = 'vigilante hero');
+        //THIS IS HOW THE CLASSLIST PROPERTY WORKS
+        console.log(wonderWoman.classList.add('warrior'));
+        console.log(wonderWoman.className);
+        //YOU CAN ALSO REMOVE THE CLASSNAME
+        wonderWoman.classList.remove('warrior');
+        //YOU CAN ALSO USE "TOGGLE" TO REMOVE A CLASS IF IT HAS IT, AND ADD IT IF IT DOESN'T
+        wonderWoman.classList.toggle('hero');
+
+
+        //YOU CAN ALSO CREATE A NEW ELEMENT LIKE THIS
+            //const flash = document.createElement('li');
+        //YOU CAN ALSO CREATE A NEW TEXT NODE
+            //const flashText = document.createTextNode('Flash');
+        //WE JUST MADE A NEW ELEMENT AND A NODE, BUT THEY ARE NOT YET CONNECTED
+        //WE CONNECT THEM LIKE THIS
+            //flash.appendChild(flashText);
+        //NOW WE CAN VIEW WHAT WE JUST DID
+            //console.log(flash.children);
+        //THIS IS A SIMPLER WAY TO DO THAT SAME THING
+        const flash = document.createElement('li');
+        flash.textContent = 'Flash';
+
+        //THE FOLLOWING IS A WAY WE CAN WRITE A FUNCTION THAT CREATES ELEMENTS
+        function createElement(tag, text) {
+            const el = document.createElement(tag);
+            el.textContent = text;
+            return el
+        }
+        //THIS IS TESTING THE FUNCTION THAT WE JUST CREATED
+        const aquaman = createElement('li','Aquaman');
+
+        //NOW THAT WE KNOW ALL THESE THINGS, AND WE CREATED THE FLASH LI, WE CAN APPEND IT TO OUR ORIGINAL LIST
+        heroes.appendChild(flash);  
+        //THIS AUTOMATICALLY PUTS THE ITEM AT THE BOTTOM OF THE LIST
+        //THE FOLLOWING CODE SPECIFIES WHERE YOU PUT YOUR ITEM
+        heroes.insertBefore(aquaman,wonderWoman);
     </script>
 </body>
 
 </html>
-
