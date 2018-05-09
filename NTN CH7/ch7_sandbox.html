@@ -1,18 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <h1>This is my Chapter 7 document</h1>
+    <!-- this works, but it's not recommended because it's javascript inside of an HTML tag-->
+    <p onclick="console.log('You Clicked Me!')">Click me to log to the console</p>
     <script>
-        //THIS IS AN EXAMPLE OF SOME CODE THAT WILL DO SOMETHING WHEN A USER CLICKS ANYWHERE ON A PAGE
-        document.body.addEventListener("click", doSomething); //(do something being a function)
+        function doSomething() {
+            var x = "It changed!";
+            document.getElementById('output').innerHTML = x;
+        }
+        //THIS FUNCTION LOGS IN THE CONSOLE WHAT TYPE OF EVEN TOOK PLACE
+        function doSomethingAgain(event) {
+            console.log(event.type);
+        }
+        //THIS WILL TELL US WHAT NODE TRIGGERED THE FUNCTION
+        function doSomethingAgain1(e) {
+            console.log(e.target);
+        }
+        //THIS IS SUPPOSED TO TELL YOU WHERE YOU CLICKED ON THE PAGE
+        function doSomethin(event) {
+            console.log(
+                `screen: (${event.screenX},${event.screenY}), page: (${event.pageX},${event.pageY}), client:(${event.screenX},${event.screenY})`
+            )
+        }
 
+        //THIS IS AN EXAMPLE OF SOME CODE THAT WILL DO SOMETHING WHEN A USER CLICKS ANYWHERE ON A PAGE
+        //THIS IS DONE USING THE addEventListener Method
+        document.body.addEventListener("click", doSomething); //(do something being a function)
+        //HERE, I WILL TEST IT'S FUNCTIONALITY. THE FUNCTION HAS BEEN DEFINED ABOVE
+
+        //THIS WILL LOG IN THE CONSOLE THAT YOU CLICKED ON THE PAGE
+        document.onclick = function () {
+            console.log('You clicked on the page!');
+        }
+
+        //THIS LINE WILL DISPLAY AN ALERT IF YOU CLICK ANYWHERE ON THE PAGE.
+        //addEventListener('click', () => alert('You Clicked!'));
+        //YOU COULD ALSO PUT A FUNCTION IN THERE RATHER THAN AN ALERT.
+
+        //THIS WILL CALL THE doSomethingAgain FUNCTION
+        document.body.addEventListener("click", doSomethingAgain);
+
+        //THERE ARE OTHER EVENTS THAT YOU CAN USE:
+        //'dblclick', 'mouseup', 'mousedown', 'mouseover', 
+
+        //THERE ARE ALSO KEYBOARD EVENTS. HERE ARE SOME EXAMPLES
+        var highlight;
+        addEventListener('keydown', highlight);
+        //THIS WILL SHOW WHAT KEY WAS PRESSED
+        addEventListener('keypress', (event) => console.log(`You pressed the ${event.key} character`));
+
+        //YOU CAN ALSO USE THE FOLLOWING
+        //'keydown', 'keyup', 'keypress'
+        //DIFFERENT KEY___ TRACK DIFFERENT THINGS. FOR EXAMPLE, A KEYPRESS COULD NOT TRACK WHEN
+        //YOU HIT A SPECIAL KEY LIKE "CONTROL"
+
+        //THIS NEXT BIT OF CODE IS PRETTY SELF EXPLANATORY, BUT ALSO PRETTY NEAT!
+        addEventListener('keydown', (event) => {
+            if (event.key === 'c' && event.ctrlKey) {
+                console.log('Action canceled!');
+            }
+        });
+        //SAME HERE!
+        addEventListener('click', (event) => {
+            if (event.shiftKey) {
+                console.log('A Shifty Click!');
+            }
+        });
+
+        //THERE ARE ALSO TOUCH EVENTS. THEY ARE FOR TOUCHSCREEN DEVICES
+
+        //THIS CODE SHOWS WHEN A USER STOPS TOUCHING THE SCREEN
+        addEventListener('touchend', () => console.log('Touch stopped'));
+        //THERE ARE MANY MORE!
+        'touchleave', 'touchmove', 'touchenter', 'touchcancel'
+
+        //YOU CAN USE THE PREVENT DEFAULT METHOD TO PREVENT NORMAL BEHAVIOR
+        //NOTE (THIS EXAMPLES USES CODE IN THE HTML)
+        const brokenLink = document.getElementById('broken');
+        brokenLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            console.log('Broken Link!');
+        });
         
+
+
+
     </script>
+    <!--THIS WILL CALL THE doSomethingAgain1 FUNCTION-->
+    <button type="button" onclick="doSomethingAgain1">text</button>
+    <p>
+        <a id='broken' href='https://sitepoint.com'>Broken Link</a>
+    </p>
+
+
+    <div id='output'>This text should change when you click on it</div>
 </body>
-</html>
+
+</html>o
