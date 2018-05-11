@@ -73,6 +73,7 @@
                        },
                        buttonClicked: function(button) {
                        console.log(button.innerHTML);
+                       console.dir(button.innerHTML);
                        let inputBox = this.inputOutput;
            
                switch (button.innerHTML) {
@@ -97,7 +98,8 @@
                }
                },
                    }
-           
+           const buttonContainer = document.querySelector('calcButtons');
+           buttonContainer.addEventListener('touchend', calculator.buttonClicked);
                    
                </script>
 </body>
