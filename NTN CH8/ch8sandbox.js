@@ -14,5 +14,42 @@ const form = document.forms['search'];
 //THIS RETURNS ALL THE ELEMENTS CONTAINED IN THE FORM
 const [input,button] = form.elements;
 
+//
+const input = form.elements.searchInput;
+input.addEventListener('focus', () => alert('focused'), false);
 
+//BLURS A SEACRCH BAR
+input.addEventListener('blur', () => alert('blurred'), false);
 
+//THE 5 LINES BELOW WILL LOOK AT A FORM AFTER IT IS SUBMITTED, BEFORE IT IS SENT TO BE PROCESSED
+const form = document.forms['search'];
+form.addEventListener ('submit', search, false);
+
+function search() {
+alert(' Form Submitted');
+}
+//YOU CAN ALSO PREVENT THE FORM FROM BEING SUBMITTED BY USING THE preventDefault() METHOD WE USED LAST CHAPTER
+
+//this function should display what you searched for 
+function search(event) {
+    alert(`You Searched for: ${input.value}`);
+    event.preventDefault();
+    }
+
+//THIS WILL SET INPUTS VALUE TO 'SEARCH HERE' SO THAT WILL DISPLAY IN THE SEARCH BAR. 
+input.value = 'Search Here';
+
+//THIS WILL DISPLAY THE TEXT IN THE SEARCH BAR, BUT IF SOMEONE STARTS TYPING, THE TEXT WILL DISSAPER.
+input.addEventListener('focus', function(){
+    if (input.value==='Search Here') {
+    input.value = ''
+    }
+    }, false);
+    input.addEventListener('blur', function(){
+    if(input.value === '') {
+    input.value = 'Search Here';
+    } }, false);
+    //you can do this much easier by putting a 'placeholder' attribute in the input HTML tag
+
+    
+    
