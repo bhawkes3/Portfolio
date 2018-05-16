@@ -1,0 +1,14 @@
+.banner {
+    height: 4em;
+    width: 85%;
+    margin-top: .5em;
+    margin: center;
+    background-color: blue;
+    border: black;
+    
+
+}
+
+body {
+    padding: .5em;
+}
