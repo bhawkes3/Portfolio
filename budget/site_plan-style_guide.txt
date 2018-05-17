@@ -1,0 +1,25 @@
+--SITE PLAN--
+
+FONT: Sans-Serrif only: Helvetica, 
+
+APP PURPOSE: The purpose of the app is to make it painless to enter and track your budget. Also, users need to be able to view their monthly purchases in an organized manner, (timestamp, spending categories, )
+
+COLOR SCHEME: 
+
+    Islamic Green: #00A80B
+    Royal BLue: #03256C
+    Rusty Red: #D7263D
+    Portland Orange: #F46036
+    Diamond: #BCE7FD
+
+FONTS: Fredoka One: Headers, heading info
+        Ubuntu: Everything else
+        @import url('https://fonts.googleapis.com/css?family=Fredoka+One|Ubuntu');
+        font-family: 'Ubuntu', sans-serif;
+        font-family: 'Fredoka One', cursive;
+
+TARGET AUDIENCE: Anyone.
+
+GOALS: Input needs to be very fast and painless; inputing a purchase should occour in 2 clicks
+
+

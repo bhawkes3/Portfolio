@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Ubuntu');
+/*import fonts like this: font-family: 'Ubuntu', sans-serif; font-family: 'Fredoka One', cursive; */
+
 .banner {
     height: 4em;
     width: 85%;
     margin-top: .5em;
     margin: center;
-    background-color: blue;
-    border: black;
+    background-color: #03256C;
+    border: .2em;
+    border-radius: 10%;
     
 
 }
 
 body {
     padding: .5em;
+    
 }
