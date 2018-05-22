@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        var colors = ["red", "blue", "orange", "green", "purple"];
+        var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        for(var i=0; i < colors.length; i++ ){
+            console.log(colors[i]);
+        }
+        //time for a new loop!
+        for(let color of colors){
+            console.log(color);
+        }
+        
+        // another cool array feature
+        var newArray = numbers.map(function(numbers){
+            return numbers * -1;
+        })
+        console.log(newArray);
+
+        //same as above but with 'arrow' notation
+
+        const negNumbers = numbers.map(numbers => numbers * -1 );
+        (numbers) => {
+            return number * -1;
+        }
+        
+    </script>
+<button type="button" onclick="VARIABLENAME">click me</button>
+</body>
+</html>

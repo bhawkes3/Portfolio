@@ -15,8 +15,10 @@ COLOR SCHEME:
 FONTS: Fredoka One: Headers, heading info
         Ubuntu: Everything else
         @import url('https://fonts.googleapis.com/css?family=Fredoka+One|Ubuntu');
-        font-family: 'Ubuntu', sans-serif;
-        font-family: 'Fredoka One', cursive;
+        
+        this is the CSS for both fonts
+            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Fredoka One', cursive;
 
 TARGET AUDIENCE: Anyone.
 

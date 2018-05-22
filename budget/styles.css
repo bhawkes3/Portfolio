@@ -3,17 +3,65 @@
 
 .banner {
     height: 4em;
-    width: 85%;
+    width: 100vw;
     margin-top: .5em;
     margin: center;
     background-color: #03256C;
     border: .2em;
-    border-radius: 10%;
+    
     
 
 }
-
 body {
     padding: .5em;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Fredoka One', cursive;
     
+}
+
+.heading {
+    
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    align-content: center;
+}
+
+.title {
+
+}
+
+.fixedBox {
+
+}
+.sinkingBox {
+
+}
+.name {
+
+}
+.planned {
+
+}
+.actual {
+
+}
+.last {
+
+}
+.createNew {
+
+}
+.totalPlanned {
+
+}
+.totalActual {
+
+}
+.totalTotal {
+
+}
+.nav {
+display: flex;
+flex-flow: row;
+position: absolute;
 }
