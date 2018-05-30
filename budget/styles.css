@@ -35,19 +35,39 @@ body {
 }
 
 .fixedBox {
-
+    margin: 0 auto;
+    border: black solid 4px;
+    border-radius: 17px;
+    height: 5em;
+    width: 90%;
+    display: flex;
 }
 .sinkingBox {
-
+    margin: 0 auto;
+    border: black solid 4px;
+    border-radius: 15px;
+    height: 5em;
+    width: 90%;
+    display: flex;
 }
 .name {
-
+    background-color: red;
+    height: 5em;
+    width: 33%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 .planned {
-
+    background-color: yellow;
+    height: 5em;
+    width: 34%;
 }
 .actual {
-
+    background-color: blue;
+    height: 5em;
+    width: 33%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 .last {
 
