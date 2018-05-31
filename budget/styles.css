@@ -129,14 +129,16 @@ body {
 #f-total-box {
     border: black solid 4px;
     height: 4rem;
-    width: 14rem;
+    width: 14em;
 }
 .f-totalPlanned {
     size: 4rem;
     background-color: aquamarine;
+    width: 7rem;
 }
 .f-totalActual {
     background-color: blueviolet;
+    width: 7rem;
 }
 .totalTotal {
 
