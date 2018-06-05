@@ -7,7 +7,7 @@
     <title>Budget</title>
     <link rel='stylesheet' href='styles.css'>
 </head>
-<body>
+<bodf\y>
     <header>
         <section class='banner'>
             <h1>Budget</h1>
@@ -23,34 +23,41 @@
         <section class='fixedBox'>
             <div class='f-name'>
                 <h3>Name</h3>
+                <p class='p-box'>Rent</p>
             </div>
             <div class='f-planned'>
                 <h3>Planned</h3>
+                <p class='p-box'>625</p>
             </div>
-            <div class='f-actual'>
+            <div class='f-actual' onclick='newExpense()'>
                 <h3>Actual</h3>
+                <p class='p-box' id='actual1'></p>
             </div>
             </section>
             <section class='totalBox'>
-                <div class='t-name'>
-                    <h2>Total</h2>
+                <div class='t-name' onclick='newItem()'>
+                    <h2>Add New</h2>
                 </div>
                 <div class='t-planned'>
-    
+                    <h3>Total</h3>
+                    <p class='p-box'>$</p>
                 </div>
                 <div class='t-actual'>
-    
+                    <h3>Total</h3>
+                    <p class='p-box'>$</p>
                 </div>
                 </section>
        
     </main>
     
    <nav class='nav'>
-        <a href='index.html'>Report</a>
-        <a href='plan.html'>Plan</a>
+        <h4 onclick='tutorial()'>Tutorial</h4>
+        <!-- <a href='index.html'>Report</a>
+        <a href='plan.html'>Plan</a> -->
+
     </nav>
     <script src='script.js'></script>
-</body>
+</bodf>
  <!-- </section>
         <section class='last'>
             <div class='createNew'>
