@@ -4,8 +4,8 @@ function tutorial(){
 }
 
 //This funcion allows the user to add an expense to their current value
-function newExpense(id){
-    var current = document.getElementById(id).innerText;
+function newExpense(){
+    var current = document.getElementById('actual1').innerText;
     if (current == "" || NaN) {
         current = 0;
      } else {
@@ -24,7 +24,7 @@ function newExpense(id){
 
     //concatenates a '$' on the front of the number
     var concat = money.concat(display);
-    document.getElementById('id').innerHTML = concat;
+    document.getElementById('actual1').innerHTML = concat;
 }
 
 //this function will display the total value of all planned elements
@@ -103,7 +103,7 @@ function createBox(name, planned, actual) {
     //creates the 'new actual' box
     var newActual = document.createElement('div');
     newActual.setAttribute("class", "f-actual");
-    newActual.setAttribute("onclick", 'newExpense(this.id)');
+    //newActual.setAttribute("onclick", 'newExpense()'); no longer needed
     var nah3 = document.createElement('h3');
     var n3 = document.createTextNode('Actual');
     var nap = document.createElement('p');
