@@ -26,7 +26,7 @@ function newExpense(id){
     var concat = money.concat(display);
     document.getElementById(id).innerHTML = concat;
     
-    // totalActualDisplay(); WILL BRING THIS BACK
+    totalActualDisplay();
 }
 //THESE 2 FUNCTIONS ARE NOT READY YET
 // //this function will display the total value of all planned elements
@@ -38,12 +38,12 @@ function newExpense(id){
 // }
 
 // //this function will display the total value of all actual elements
-// function totalActualDisplay(){
-//     let display = document.getElementsByClassName("f-actual").value;
+function totalActualDisplay(){
+    let display = document.getElementsByClassName("AActualAddup");
 
-//     //display to the user
-//     document.getElementById('totalADisplay').innerHTML = display;
-// }
+    //display to the user
+    document.getElementById('totalADisplay').innerHTML = display;
+}
 
 function newItem(){
     var name = prompt('Please enter the name of your new item');
@@ -59,7 +59,7 @@ function newItem(){
     mainsec.appendChild(newbox);
 
     // totalActualDisplay();
-    // totalPlannedDisplay();   WILL BRING THESE BACK
+    // totalPlannedDisplay();
 }
 //this function creates a new box for the user to use
         /*THESE ARE THE STEPS OF EACH INDIVIDUAL SECTION:
@@ -101,8 +101,8 @@ function createBox(name, planned, actual) {
     var nph3 = document.createElement('h3');
     var n2 = document.createTextNode('Planned');
     var npp = document.createElement('p');
-    npp.setAttribute("class", "p-box", "PActualAddup");
-    // npp.setAttribute("name", "PActualAddup");
+    // npp.setAttribute("class", "p-box", "PActualAddup");
+    npp.classList.add("p-box", "PActualAddup");
     var nPlanned = document.createTextNode("$" + planned);
     npp.appendChild(nPlanned);
     nph3.appendChild(n2);
@@ -117,7 +117,8 @@ function createBox(name, planned, actual) {
     var nah3 = document.createElement('h3');
     var n3 = document.createTextNode('Actual');
     var nap = document.createElement('p');
-    nap.setAttribute("class", "p-box", "AActualAddup");
+    // nap.setAttribute("class", "p-box", "AActualAddup");
+    nap.classList.add("p-box", "AActualAddup")
     // nap.setAttribute("name", "AActualAddup");
     nap.setAttribute("id", name);
     nap.setAttribute("onclick", 'newExpense(this.id)');
