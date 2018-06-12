@@ -6,7 +6,7 @@ function tutorial(){
 //This funcion allows the user to add an expense to their current value
 function newExpense(id){
     var current = document.getElementById(id).innerText;
-    if (current == "" || NaN) {
+    if (current == "" || current == "$NaN") {
         current = 0;
      } else {
             //strips the '$' sign off of the front string
@@ -24,19 +24,26 @@ function newExpense(id){
 
     //concatenates a '$' on the front of the number
     var concat = money.concat(display);
-    document.getElementById('id').innerHTML = concat;
+    document.getElementById(id).innerHTML = concat;
+    
+    // totalActualDisplay(); WILL BRING THIS BACK
 }
+//THESE 2 FUNCTIONS ARE NOT READY YET
+// //this function will display the total value of all planned elements
+// function totalPlannedDisplay(){
+//     let display = document.getElementsByClassName("f-planned").value;
 
-//this function will display the total value of all planned elements
-function totalPlannedDisplay(){
-    document.getElementsByClassName("t-planned").innerText;
-}
+//     //display to the user
+//     document.getElementById('totalPDisplay').innerHTML = display;
+// }
 
-//this function will display the total value of all actual elements
-function totalActualDisplay(){
-    document.getElementsByClassName("t-actual").innerText;
-    document.getElementsByClassName('t-box').innerHTML;
-}
+// //this function will display the total value of all actual elements
+// function totalActualDisplay(){
+//     let display = document.getElementsByClassName("f-actual").value;
+
+//     //display to the user
+//     document.getElementById('totalADisplay').innerHTML = display;
+// }
 
 function newItem(){
     var name = prompt('Please enter the name of your new item');
@@ -50,6 +57,9 @@ function newItem(){
     //appends the new section to the body
     var mainsec = document.getElementById('main-sec');
     mainsec.appendChild(newbox);
+
+    // totalActualDisplay();
+    // totalPlannedDisplay();   WILL BRING THESE BACK
 }
 //this function creates a new box for the user to use
         /*THESE ARE THE STEPS OF EACH INDIVIDUAL SECTION:
@@ -91,8 +101,9 @@ function createBox(name, planned, actual) {
     var nph3 = document.createElement('h3');
     var n2 = document.createTextNode('Planned');
     var npp = document.createElement('p');
-    npp.setAttribute("class", "p-box");
-    var nPlanned = document.createTextNode(planned);
+    npp.setAttribute("class", "p-box", "PActualAddup");
+    // npp.setAttribute("name", "PActualAddup");
+    var nPlanned = document.createTextNode("$" + planned);
     npp.appendChild(nPlanned);
     nph3.appendChild(n2);
     newPlanned.appendChild(nph3);
@@ -103,13 +114,14 @@ function createBox(name, planned, actual) {
     //creates the 'new actual' box
     var newActual = document.createElement('div');
     newActual.setAttribute("class", "f-actual");
-    newActual.setAttribute("onclick", 'newExpense(this.id)');
     var nah3 = document.createElement('h3');
     var n3 = document.createTextNode('Actual');
     var nap = document.createElement('p');
-    nap.setAttribute("class", "p-box");
+    nap.setAttribute("class", "p-box", "AActualAddup");
+    // nap.setAttribute("name", "AActualAddup");
     nap.setAttribute("id", name);
-    var nactual = document.createTextNode(actual);
+    nap.setAttribute("onclick", 'newExpense(this.id)');
+    var nactual = document.createTextNode("$" + actual);
     nap.appendChild(nactual);
     nah3.appendChild(n3);
     newActual.appendChild(nah3);

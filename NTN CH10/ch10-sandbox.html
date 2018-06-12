@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Debugging</title>
+</head>
+<body>
+    <script>
+        //this is to help catch errors! We need to be precise!
+        'use strict';
+
+        //I like this little example that it gave in the book. This is an example of a stack trace
+        function three(){ unicorn(); }
+        function two(){ three(); }
+        function one(){ two(); } one();
+
+        //make sure to use debuggers!
+        debugger;
+
+        //use this cool feature. It gives you a stack trace
+        console.trace();
+
+        //it's good to try and build your programs so thay they prevent the user from entering something that will break it. I try and use if statements for these
+        //you can also use the "throw" feature for that
+        function squareRoot(number) {
+                'use strict';
+                if (number < 0) {
+                    throw new RangeError("You can't find the square root of negative numbers")
+                }
+                return Math.sqrt(number);
+            };
+        //the above code is just an example from the book
+
+        //you can also use jest.
+
+        //this is a pretty great feature to save computing time. You can store an amount in a cache in javascript. This is an example
+            function square(x){
+        square.cache = square.cache || {};
+        if (!square.cache[x]) {
+        square.cache[x] = x*x;
+        }
+        return square.cache[x]
+        }
+
+    </script>
+</body>
+</html>
+
+
+
