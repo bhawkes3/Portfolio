@@ -18,6 +18,54 @@
         //you can cache items to save processing time
         name.cache
 
+        //for an IIFE, all you need to do is put paranthesees at the end of the function
+        (function iife(){
+            //put your code here
+        })();
+
+
+        //this is a much faster way to swap the values of elements
+        let [a,b] = [1,2];
+            [a,b] = [b,a];
+
+        //this is an example of "initialization code", something that is run once and not reused
+        {
+        const name = 'Peter Parker'; // This might be obtained from a cookie in reality
+        const days =['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
+        const date = new Date(),today = days[date.getDay()];
+        console.log(`Welcome back ${name}. Today is ${today}`);
+        }
+        //when they start up, they will see a message
+
+        //You can also use enclose an IIFE to enclose a block of code on a smaller scale
+        (function() {
+            const name = 'Banana';
+            console.log(`Hello from ${name}`);
+            }());
+
+        (function() {
+            const name = 'Apple';
+            console.log(`Hello from ${name}`);
+            }());
+        //Both blocks of code have a const named "name", but they do not interfere with each other
+
+        //this block of code can change based on browswer support. You can use a different function if the first one doesn't work
+        function ride(){
+            if (window.unicorn) {
+            ride = function(){
+            // some code that uses the brand new and sparkly unicorn methods
+            return 'Riding on a unicorn is the best!';
+            }
+            } else {
+        ride = function(){
+            // some code that uses the older pony methods
+            return 'Riding on a pony is still pretty good';
+            }
+            }
+            return ride();
+            }
+
+            //left off on page 401
         
     </script>
 </body>

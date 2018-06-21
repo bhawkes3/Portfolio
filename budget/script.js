@@ -1,3 +1,4 @@
+'use strict'
 //This is a simple tutorial for users to click to see how to use the app
 function tutorial(){
     alert('Tap the "Add New" button to create a new category, or tap on the "actual" section to add an expense');
@@ -21,14 +22,14 @@ function newExpense(id){
     var money = '$'
     var display = parseFloat(expense + newCurrent);
     parseFloat(display);
-
+ 
     //concatenates a '$' on the front of the number
     var concat = money.concat(display);
     document.getElementById(id).innerHTML = concat;
     
     totalActualDisplay();
 }
-//THESE 2 FUNCTIONS ARE NOT READY YET
+
 // //this function will display the total value of all planned elements
 // function totalPlannedDisplay(){
 //     let display = document.getElementsByClassName("f-planned").value;
@@ -39,7 +40,12 @@ function newExpense(id){
 
 // //this function will display the total value of all actual elements
 function totalActualDisplay(){
-    let display = document.getElementsByClassName("AActualAddup");
+    var classList = document.getElementsByClassName("AActualAddup");
+    //this loop adds up all the values passed in
+    let display = 0;
+    for (let i = 0; i >= classList.length; i++) {
+        display += parseFloat(classList[i].substr(1));
+    };
 
     //display to the user
     document.getElementById('totalADisplay').innerHTML = display;

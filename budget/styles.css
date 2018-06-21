@@ -60,7 +60,7 @@ body {
     text-align: center;
 }
 .f-actual {
-    background-color: blue;
+    background-color: skyblue;
     height: 5em;
     width: 35%;
     border-top-right-radius: 10px;
@@ -92,6 +92,13 @@ body {
     width: 35%;
     text-align: center;
 }
+/* .t-planned::before {
+    content: "$";
+    font-size:2em;
+    position: absolute;
+    margin-top: .74em;
+    margin-left: -1.5em;
+} */
 .t-actual {
     background-color:purple;
     height: 5em;
@@ -99,8 +106,16 @@ body {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     text-align: center;
-
 }
+/* .t-actual::before {
+    content: "$";
+    font-size:2em;
+    position: absolute;
+    margin-top: .74em;
+    margin-left: -1.5em;
+} */
+
+
 .nav {
     display: flex;
     overflow: hidden;
