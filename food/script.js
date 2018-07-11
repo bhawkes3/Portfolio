@@ -1,7 +1,20 @@
-//use fetch to retrieve an API
+//function that will get food
 function getFood(){
-    
-    fetch("http://food2fork.com/api/search?key={d611934e9c32166b791fbd39a3badfd2}&q=shredded%20chicken")
+  
+  var myInit = { method: 'GET',
+  mode: 'cors',               
+  headers:{
+   'Content-Type': 'application/json', "X-Mashape-Key": "mGG04GkkePmshJ71JzidhcbIzhXSp1NaMpZjsnwvytXfiBOWU8", "X-Mashape-Host": "spoonacular-recipe-food-nutrition-v1.p.mashape.com"
+ }
+};
+
+//set the base url
+const baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search";
+
+
+
+//go and get the information using the API
+  fetch("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=chicken%2C+onion%2C+garlic", myInit)
   .then(function(response) {
     return response.json();
   })
@@ -10,8 +23,4 @@ function getFood(){
   });
 }
 
-
-
-
-// http://food2fork.com/api/get THIS URL WILL GET RECIPES
-// api key: d611934e9c32166b791fbd39a3badfd2
+// "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?diet=vegetarian&excludeIngredients=coconut&intolerances=egg%2C+gluten&number=10&offset=0&query=burger&type=main+course"
