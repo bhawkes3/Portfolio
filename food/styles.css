@@ -37,7 +37,36 @@ header {
     border: .5px solid black;
     height: 65%;
     border-radius: 3px;
-    
+}
+
+.result-box {
+    background-color: aqua;
+    height: 10em;
+    border: solid black .3px;
+    border-radius: 3px;
+    width: 95%;
+    margin-top: 1em;
+    margin-left: .5em;
+    text-align: center;
+}
+
+.result-box h2 {
+    text-align: center;
+    font-family: 'Shrikhand', cursive;
+    width: 100%;
+}
+
+.result-box p {
+    display: inline;
+    /* margin-left: 1em; */
+}
+
+.p-time {
+    margin-left: -3em;
+}
+
+.servings {
+    margin-left: 3em;
 }
 
 #search-box {

@@ -1,23 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Further Functions</title>
 </head>
+
 <body>
     <script>
         //all functions have a length property based on how many objects it has
         //this example counts the parameters
-        function banana (one, two, three) {
+        function banana(one, two, three) {
             var potato = 1;
             return potato;
         }
         console.log(banana.length);
+
+        //an immediately invoked function call, or "IIFE" for short, is a function that is called as soon as it is created.
+        (function () {
+            const temp = 'World';
+            console.log(`Hello ${temp}`);
+        })();
+        //IIFE's are very great for "initialization code", which is code that is run once at start up
+
+        //this example shows temporary variables, and a nice example of how to switch them
+        let [a, b] = [1, 2];
+        [a, b] = [b, a];
+        console.log(a);
+        console.log(b);
+
+        //"use strict" can be more effective if it is put inside of an individual function, so it doesn't ruin code written by others
+
+        //below is an example of code that can "redefine itself". this is a very simple example
+        function party() {
+            console.log('Wow this is amazing!');
+            party = function () {
+                console.log('Been there, got the T-Shirt');
+            }
+        }
+        //everytime the party function is called, it will be redefined by the second function
+
+        //p.s. i still don't understand the use of "unicorn" in the book
+
+        function ride() {
+            if (window.unicorn) {
+                ride = function () {
+                    // some code that uses the brand new and sparkly unicorn methods
+                    return 'Riding on a unicorn is the best!';
+                }
+            } else {
+                ride = function () {
+                    // some code that uses the older pony methods
+                    return 'Riding on a pony is still pretty good';
+                }
+            }
+            return ride();
+        }
+        //above is an example of init-time branching, which makes the browser only check once if something is supported.
+
+
+        //a recursive function is one that continues to run until a certain condition is met.
+        function factorial(n) {
+            if (n === 0) {
+                return 1;
+            } else {
+                return n * factorial(n - 1);
+            }
+        }
+        //this nifty code will continue to call itself until the condition is met.
+        //here is another example using a sequence
+        function collatz(n, sequence=[n]) {
+                if (n === 1){
+                return `Sequence took ${sequence.length} steps. It was ${sequence}`;
+                }
+                if (n%2 === 0) {
+                n = n/2;
+                } else {
+                n = 3*n + 1;
+                }
+                return collatz(n,[...sequence,n]);
+                }
+
+        //this is an example of "asyncronous Programming", where another line of Javascript code is run out of order, or at the same time as other code.
+            function wait(message, callback, seconds){
+                setTimeout(callback,seconds * 1000);
+                console.log(message);
+                }
+
+                function selfDestruct(){
+                console.log('BOOOOM!');
+                }
+
+        //promises are another great example of this. Here is an example of a promise
+           const promise = new Promise( (resolve, reject) => {
+                // initialization code goes here
+                if (success) {
+                resolve(value);
+                } else {
+                reject(error);
+                }
+                });
+        //you can also chain promises together. (page 411 in the book)
+            login(userName)
+                .then(user => getPlayerInfo(user.id))
+                .then(info => loadGame(info))
+                .catch( error);
+
+
+        //you can write functions that return other functions. Here is a small example of this
+            function returnHello() {
+                console.log('returnHello() called');
+                return function() {
+                console.log('Hello World!');
+                }
+                }
+
+
+        //CLOSURES
+        //closures deal with the scope of variables. This makes it so you can repeat variable names without ruining other code.
+            function outer() {
+                    const outside = 'Outside!';
+                    function inner() {
+                    const inside = 'Inside!';
+                    console.log(outside);
+                    console.log(inside);
+                    }
+                    console.log(outside);
+                    inner();
+                    }
+
+        //here is another useful example
+            function closure() {
+                    const a = 1.8;
+                    const b = 32;
+                    return c => c * a + b;
+                    }
         
+        //another example of closures is the cool counter
+            function counter(start){
+                    let i = start;
+                    return function() {
+                    return i++;
+                    }
+                    }
+        //now, you can call the function, pass it a number, and it will count with it
+        const count = counter(1);
 
         
+
+
+
+
+
+
     </script>
 </body>
+
 </html>
