@@ -8,10 +8,89 @@
 </head>
 <body>
     <script>
-        
+        //this is my chapter 13 code!!!!
+
+        //Ajax is a technique that allows web pages to communicate asynchronously with a server, and it dynamically updates web pages without reloading. This enables data to be sent and received in the background, as well as portions of a page to be updated in response to user events, while the rest of the program continues to run.
+        //p.s. the above code was directly out of the book, but I liked the way they put it.
+
+        //a fetch is an incredibly useful tool
+        //a fetch requires 3 basic parts:
+        fetch(exampleURL)
+        .then (/*code that handles the response*/)
+        .catch(/*code that runs if there is an error*/);
+
+        //here is a more specific example
+        let baseURL = "http://www.myapi.com/"
+        fetch(baseURL)
+        .then(Response)
+        .catch(error);
+
+    //when you pass in a fetch, you may need to add header information into the call to access your target
+
+    //with fetch, there are a few different types of response types including files, JSON, and objects
+
+    //file response
+    fetch(url)
+     .then( response => response.blob() ); // transforms the data into a blob object
+     .then( blob => console.log(blob.type) )
+     .catch( error => console.log('There was an error: ',error))
     
-    
-    
+    //JSON response
+    fetch(url)
+.then( response => response.json() ); // transforms the JSON data into a JavaScript object
+.then( data => console.log(Object.entries(data)) )
+.catch( error => console.log('There was an error: ', error))
+
+//there are a few components that go into the request interface, and they are URL, method, headers, mode, cahce, credentials, and redirect. the above examples show a couple of these. For a description of what these are, refer to the book, page 518
+
+//headers are very important to pass information in. here is an example.
+const url = 'https:example.com/data';
+const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8', 'Accept-Encoding':'gzip,deflate'})
+const request = (url,{
+headers: headers
+})
+fetch(request)
+.then( function(response) {
+if(response.ok) {
+return response;
+}
+throw Error(response.statusText);
+})
+.then( response => // do something with response )
+.catch( error => console.log('There was an error!') )
+
+//thisj is a pretty neat example of a to do list function
+function addTask(event) {
+event.preventDefault();
+const number = form.task.value;
+const task = {
+userId: 1,
+title: form.task.value,
+completed: false
+}
+const data = JSON.stringify(task);
+const url = 'https://jsonplaceholder.typicode.com/todos';
+const headers = new Headers({
+'Accept': 'application/json',
+'Content-Type': 'application/json'
+});
+const request = new Request(url,
+{
+method: 'POST',
+header: headers,
+body: data
+}
+)
+Ajax 529
+fetch(request)
+.then( response => response.json() )
+.then( task => console.log(`Task saved with an id of ${task.id}`) )
+.catch( error => console.log('There was an error:', error))
+}
+
+//this chapter wasn't too ling, but it had a lot of useful information!
+
+
     
     
     

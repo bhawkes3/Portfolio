@@ -1,24 +1,48 @@
-//function that will get food
-function getFood(){
+//THIS IS THE BEAUTIFUL JAVASCRIPT FOR MY WONDERFUL NEW APP, FOOD FRIEND
+
+
+//this function builds the URL based on what the user typed in
+function buildURL() {
+  //set the base URL for reaching out to the food site
+  const baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=";
+
+  //grab the input that the user submitted
+  let input = document.getElementById("food-search-input").value;
+
+  // build a loop to change the spaces in the users search to make it into a valid URL
+  let i = 0, strLength = input.length;
+  for(i; i < strLength; i++) {
+    input = input.replace(" ", "%2c+");
+  }
   
-  var myInit = { method: 'GET',
-  mode: 'cors',               
-  headers:{
-   'Content-Type': 'application/json', "X-Mashape-Key": "mGG04GkkePmshJ71JzidhcbIzhXSp1NaMpZjsnwvytXfiBOWU8", "X-Mashape-Host": "spoonacular-recipe-food-nutrition-v1.p.mashape.com"
- }
-};
+  //concatanates the new part of the URL to make the completed, searchable URL
+  let newUrl = baseUrl + input;
 
-//set the base url
-const baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search";
-
+  //this function is done. This passes the URL onto the next function as a parameter to go and grab the recipes
+  getFood(newUrl)
+}
 
 
 //go and get the information using the API
-  fetch("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=chicken%2C+broccoli", myInit)
+function getFood(url){
+//headers
+let myInit = { method: 'GET',
+  mode: 'cors',               
+  headers:{
+   'Content-Type': 'application/json', "X-Mashape-Key": "mGG04GkkePmshJ71JzidhcbIzhXSp1NaMpZjsnwvytXfiBOWU8", "X-Mashape-Host": "spoonacular-recipe-food-nutrition-v1.p.mashape.com"
+  }}
+  //go and grab the 
+  fetch(url, myInit)
   .then(function(response) {
+    console.log(response);
+    return response.json();
+  })
+  .then(function(myJson) {
 
-    console.log(response.results[0].title);
+  //stores the 10 food items in an array
+  let foodArray = response.results;
     
+    /*
     let key = Object.keys(response);
             // let nav = '<ul>';
             // nav += "<li id = 'home'>Home</li>";
@@ -42,13 +66,10 @@ const baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/reci
                box.appendChild(servings);
                let resultList = document.getElementById("result-list");
                resultList.appendChild(box);
-
             };
             
-
-    return response.json();
-  })
-  .then(function(myJson) {
+*/
+  
     console.log(myJson);
   });
 }

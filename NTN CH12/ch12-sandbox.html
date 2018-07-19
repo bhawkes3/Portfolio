@@ -8,14 +8,124 @@
 </head>
 <body>
     <script>
+    //this is my code for the chapter 12 book in Novice to Ninja
+
+
+    //this "constructor function" works better than simply declaring an object literal
+        const Dice = function(sides=6){
+            this.sides = sides;
+            this.roll = function() {
+            return Math.floor(this.sides * Math.random() + 1)
+            }
+            }
+
+    //javascript also has a contructor property
+            Dice.constructor 
+
+    //This is an example of a Javascript class, and also a static method
+        class Dice {
+            constructor(sides=6) {
+            this.sides = sides;
+            }
+            roll() {
+            return Math.floor(this.sides * Math.random() + 1)
+            }
+            static description() {
+            return 'A way of choosing random numbers'
+            }
+            }
+
+
+    //this is an example of Prototypal inheritance that I liked a lot from the book
+
+            class Turtle {
+            constructor(name) {
+                this.name = name;
+                this.weapon = 'hands';
+            }
+            sayHi() {
+                return `Hi dude, my name is ${this.name}`;
+            }
+            attack(){
+                return `Feel the power of my ${this.weapon}!`;
+            }
+            }
+    //now, we make a new turtle
+    const leo = new Turtle('Leonardo');
+    //Turtle { name: 'Leonardo' } -----commented out for an error
+    //then, we call the function
+    console.log(leo.name);
+    console.log(leo.sayHi);
     
+    //the protoype property allows you to change a class declaration after it has been created
+    banana.prototype.food = "fruit";
+    console.log(banana);
     
+    //has own property sees whether or not the variable contains whatever is asked for
+    banana.hasOwnProperty ('food');
+    //the proototype will update the original class.
+
+    //prototypes can also recieve "Inheritance", making something like a chain of prototypes
+    Object.getPrototypeOf(Object.getPrototypeOf(raph))
+
+    //objects have different ways to call methods, and this is called Polymorphism. here's an example of calling a string array
+
+    let array = [4, 5, 6, 7, 8];
+    console.log(array.toString);
+
+    //you can also add methods to built in objects
+        Number.prototype.isEven = function() {
+        return this%2 === 0;
+        }
+        Number.prototype.isOdd = function() {
+        return this%2 === 1;
+        }
+
+
+    //this is not necessarily a code example, but very useful information:
+    //each object properties have the following attributes
+    // value ― This is the value of the property and is undefined by default
+    // // writable ― This boolean value shows whether a property can be   changed or not, and is false by default
+    // enumerable ― this boolean value shows whether a property will   show up when the object is displayed in a for in loop, and is false by default.
+    // // configurable ― this boolean value shows whether you can delete  a property or change any of its attributes, and is false by default.
+
+    //this is a syntax example for the information above
+    Object.getOwnPropertyDescriptor(me,'name'); //will show
+        //{ value: 'DAZ',
+        //writable: true,
+        //enumerable: true,
+        //configurable: true }
+
+    //this chapter also covers getters and setters
+        me.age = 21;
+        me.retirementAge = 65;
+        Object.defineProperty(me, 'yearsToRetirement',{
+        get() {
+        if(this.age > this.retirementAge) { return 0; }
+        else { return this.retirementAge - this.age; }
+        },
+        set(value) {
+        this.age = this.retirementAge - value;
+        return value;
+        }
+        });
+
+    //you can create objects from other objects
+        const Human = {
+        arms: 2,
+        legs: 2,
+        walk() { console.log('Walking'); }
+        }
+
+    //similar to what was listed above with inheritance, objects can recieve certain attributes froma "tree" of objects. Refer to page 485 for a tree example graphic
+
+    //along with chaining prototypes, it is very effective to chain functions together.
+
+    //basically, in Javascript, objects are a huge part of programming. You can pretty much think of everything like an object. There are a lot of things that objects can do with each other. 
+        
     
-    
-    
-    
-    
-    
+
+
     
     </script>
 </body>
