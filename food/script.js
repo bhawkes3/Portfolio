@@ -40,7 +40,7 @@ let myInit = { method: 'GET',
   .then(function(myJson) {
 
   //stores the 10 food items in an array
-  let foodArray = response.results;
+  let foodArray = myJson.results.Array;
     
     /*
     let key = Object.keys(response);
